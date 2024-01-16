@@ -53,6 +53,9 @@
         </a>
       </li>
       {%- endif -%}
+      {%- if config.extra.social.crates -%}
+      <li><a href="https://crates.io/users/{{ config.extra.social.crates }}" tooltip="Go to crates.io profile page" aria-label="Go to crates.io profile page"><i class="fas fa-cubes"></i></a></li>
+      {%- endif -%}
       {%- if config.extra.social.twitter -%}
       <li><a href="https://twitter.com/{{ config.extra.social.twitter }}" aria-label="Go to Twitter profile page"><i class="fab fa-twitter"></i></a></li>
       {%- endif -%}
@@ -60,7 +63,7 @@
       <li><a rel="me" href="https://{{ config.extra.social.mastodon }}"
                       aria-label="Go to Mastodon profile page"><i class="fab fa-mastodon"></i></a>
       </li>
-      {%- endif -%}    
+      {%- endif -%}
       {% if config.extra.social.facebook -%}
       <li><a href="https://www.facebook.com/{{ config.extra.social.facebook }}" aria-label="Go to FaceBook profile page"><i class="fab fa-facebook"></i></a></li>
       {%- endif -%}
@@ -105,8 +108,10 @@
         {%- if config.extra.show.tags -%}
         <li><a {% if language_site_path is starting_with("/tags") %}class="current" {% endif %} href="{{ get_url(path="@/_index.md", lang=lang) }}tags">{{ trans(key="tags", lang=lang) }}</a></li>
         {%- endif -%}
+        {%- if config.extra.show.archive -%}
         <li><a {% if language_site_path is starting_with("/archive") %}class="current" {% endif %}
             href="{{ get_url(path="@/archive/_index.md", lang=lang) }}">{{ trans(key="archive", lang=lang) }}</a></li>
+        {%- endif -%}
         {%- if config.extra.show.links -%}
         <li><a {% if language_site_path is starting_with("/links") %}class="current" {% endif %} href="{{ get_url(path="@/links/_index.md", lang=lang) }}">{{ trans(key="links", lang=lang) }}</a></li>
         {%- endif -%}
