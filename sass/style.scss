@@ -433,6 +433,21 @@ img {
         }
       }
     }
+
+    table.projectData {
+      border-collapse: collapse;
+      tbody {
+        tr {
+          td:first-child {
+            font-weight: bold;
+            padding-right: 0.25rem;
+          }
+          td:last-child {
+            padding-left: 1rem;
+          }
+        }
+      }
+    }
   }
 
   .post-footer {

@@ -1,0 +1,48 @@
+{% extends "page.html" %}
+
+{% block title %}{{ config.title }} • Project: {{ page.title }}{% endblock title %}
+
+{% block content %}
+<article class="post animated fadeInDown">
+  <h1><a href="{{ page.permalink }}">Company: {{ page.title }}</a></h1>
+  {% if page.extra.author %}
+  <div class="info">By {{ page.extra.author }}.</div>
+  {% endif %}
+  <div class="post-content">
+    <table class="projectData">
+      <tbody>
+        <tr>
+          <td>Period:</td>
+          <td>{{ page.extra.period_start | safe }} -- {{ page.extra.period_end | safe }}</td>
+        </tr>
+        <tr>
+          <td>Function:</td>
+          <td>{{ page.extra.function | safe }}</td>
+        </tr>
+        <tr>
+          <td>Tools:</td>
+          <td>{{ page.extra.tools | safe }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Project</h2>
+    {{ page.content | safe }}
+  </div>
+  <div class="post-footer">
+    <div class="meta">
+      <div class="info">
+        {% if page.date %}
+        <i class="far fa-sun"></i><span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang))
+          }}</span>
+        {% endif %}
+        {% if page.taxonomies.tags %}
+        <i class="fas fa-tags"></i>
+        {% for tag in page.taxonomies.tags %}
+        <a class="tag" href="{{ get_url(path="@/_index.md", lang=lang) }}tags/{{tag}}">&nbsp;{{tag}}</a>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock content %}
