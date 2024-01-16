@@ -1,7 +1,7 @@
 {% extends "basic.html" %}
 
 {% block content %}
-    {% for page in paginator.pages %}
+    {% for page in paginator.pages | reverse %}
       <section class="post animated fadeInDown">
         <div class="post-title">
                 <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
