@@ -170,6 +170,10 @@ img {
     padding-top: 12px;
     padding-right: 4px;
 
+    @media print {
+      max-width: min-content;
+    }
+
     @media screen and (min-width: 470px) {
       padding-right: 20px;
     }
@@ -194,6 +198,10 @@ img {
       position: relative;
       display: block;
       float: left;
+
+      @media print {
+        display: none;
+      }
 
       button {
         font-size: 1.3em;
@@ -318,9 +326,12 @@ img {
   }
 }
 
-
 .post {
   margin: 30px;
+
+  @media print {
+    page-break-inside: avoid;
+  }
 
   .post-title {
     h1 {
@@ -821,6 +832,20 @@ a.btn {
   padding-top: 50px;
 }
 
+@media print {
+  .page-top {
+    display: none;
+  }
+
+  .content {
+    margin-top: 0px;
+  }
+
+  .social-links {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 960px) {
   #sidebar {
     width: 100%;
@@ -844,7 +869,7 @@ a.btn {
   }
 
   .page-top {
-    width: 100%
+    width: 100%;
   }
 
   .post-title h3 {
